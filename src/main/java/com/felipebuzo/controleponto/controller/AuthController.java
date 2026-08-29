@@ -46,4 +46,10 @@ public class AuthController {
 
         return ResponseEntity.ok(new LoginResponse(token));
     }
+
+    @PostMapping("/gerar-hash")
+    public ResponseEntity<?> gerarHash(@RequestBody LoginRequest request) {
+        String hash = passwordEncoder.encode(request.getSenha());
+        return ResponseEntity.ok(hash);
+    }
 }
