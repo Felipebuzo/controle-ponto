@@ -44,7 +44,7 @@ public class AuthController {
 
         String token = jwtUtil.gerarToken(usuario.getEmail());
 
-        return ResponseEntity.ok(new LoginResponse(token));
+        return ResponseEntity.ok(new LoginResponse(token, usuario));
     }
 
     @PostMapping("/gerar-hash")
